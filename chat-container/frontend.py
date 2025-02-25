@@ -24,7 +24,7 @@ class ChatbotApp(tb.Window):
         super().__init__(themename="darkly")
         self.title("TinyLlama Chat 🤖")
         self.geometry("1920x1080")
-        self.state("zoomed") 
+        self.state("zoomed")
         self.min_chat_width = 1024
 
         # Load icons
