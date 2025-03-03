@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <p>
+      Depression affects millions globally, yet traditional diagnostic methods
+      rely on subjective self-reports, leading to delays and inaccuracies.
+      Automated systems leveraging behavioral cues like facial expressions offer
+      a promising alternative. This paper isolates and refines the facial
+      expression analysis component from a broader multimodal framework to
+      create a specialized solution for depression detection. By integrating
+      computer vision technologies, the proposed system enables continuous,
+      non-intrusive monitoring of emotional states, facilitating early
+      intervention. The depression mapping algorithm further enhances clinical
+      relevance by translating multimodal emotional data into standardized
+      severity levels.
+    </p>
+
+    <p>
+      Recent studies highlight the efficacy of AI in detecting depression
+      through facial cues. Facial Emotion Recognition (FER) systems, such as
+      those developed by Affectiva and RealEyes, use deep learning to identify
+      microexpressions linked to depressive states. EfficientNet-B2, a
+      lightweight model, balances computational efficiency and accuracy, making
+      it suitable for real-time applications. This paper addresses these gaps by
+      combining facial modalities with a robust depression severity mapping
+      algorithm.
+    </p>
+
+    <p>
+      The facial emotion recognition module processes real-time webcam footage
+      using OpenCV and PyTorch, following a structured pipeline for accurate
+      emotion classification. First, the preprocessing stage ensures frame
+      alignment, resizing (224x224 pixels), and normalization for consistent
+      input quality. Next, feature extraction leverages EfficientNet-B2 and
+      FaceNet-PyTorch to analyze spatial features from the face, capturing
+      fine-grained facial expressions. A Softmax layer then classifies the
+      extracted features into seven emotions: happiness, sadness, anger, fear,
+      surprise, disgust, and neutrality by outputting confidence scores between
+      0 and 1. These emotion scores, along with timestamps, are stored locally
+      for longitudinal trend analysis, enabling insights into emotional patterns
+      over time. Additionally, when emotional intensity surpasses critical
+      thresholds (e.g., sadness > 0.7), alerts are triggered to detect severe
+      depression in accordance with MADRS guidelines.
+    </p>
+
+    <p>
+      The Depression Mapping Algorithm integrates emotional confidence scores
+      from facial modalities using weighted averaging, where weights are
+      assigned based on clinical relevance detected in facial expressions. This
+      combined score is then used to classify depression severity into three
+      levels: mild (0.5–0.7), moderate (0.7–0.85), and severe (>0.85). These
+      thresholds are aligned with MADRS guidelines, ensuring clinically
+      actionable insights for early detection and intervention in mental health
+      assessments.
+    </p>
+
+    <p>
+    This paper presents a robust framework for depression detection using
+    facial expression analysis. The integration of EfficientNet,
+    FaceNet-PyTorch, and hybrid CNN-LSTM models achieves high accuracy in
+    emotion classification, while the MADRS-aligned mapping algorithm enhances
+    clinical utility. Future work will focus on expanding datasets to include
+    diverse demographics and optimizing real-time performance for scalable
+    deployment. This approach bridges the gap between traditional diagnostics
+    and AI-driven solutions, offering a proactive tool for mental health
+    management.
+    </p>
+  </body>
+</html>
