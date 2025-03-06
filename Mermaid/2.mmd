@@ -1,0 +1,49 @@
+classDiagram
+    class DataPreprocessor {
+        +preprocessAudio(audioData): processedAudio
+        +preprocessVideo(videoData): processedVideo
+        -noiseRemoval()
+        -trimSilence()
+        -alignFaces()
+        -colorizeGrayscale()
+    }
+
+    class FeatureExtractor {
+        +extractAudioFeatures(audio): features
+        +extractFacialFeatures(video): embeddings
+        -computeMFCCs()
+        -computePitch()
+        -generateFaceNetEmbeddings()
+    }
+
+    class RNNLSTMModel {
+        +train(audioFeatures): model
+        +predict(audioFeatures): emotionProbs
+        -lstmLayers
+        -fullyConnectedLayer
+    }
+
+    class EfficientNetModel {
+        +train(facialEmbeddings): model
+        +predict(facialEmbeddings): emotionProbs
+        -convLayers
+    }
+
+    class FusionAlgorithm {
+        +fuseOutputs(voiceProbs, faceProbs): fusedScores
+        -weightFeatures()
+        -combineModalities()
+    }
+
+    class DepressionMapper {
+        +mapToMADRS(fusedScores): depressionScore
+        -applyMADRSGuidelines()
+        -calculateSeverity()
+    }
+
+    DataPreprocessor --> FeatureExtractor : provides processed data
+    FeatureExtractor --> RNNLSTMModel : provides audio features
+    FeatureExtractor --> EfficientNetModel : provides facial embeddings
+    RNNLSTMModel --> FusionAlgorithm : outputs emotion probabilities
+    EfficientNetModel --> FusionAlgorithm : outputs emotion probabilities
+    FusionAlgorithm --> DepressionMapper : provides fused scores

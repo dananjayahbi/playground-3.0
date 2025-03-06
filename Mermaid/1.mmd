@@ -1,0 +1,23 @@
+graph TD
+    A[Input Data] -->|Audio| B[Voice Analysis Branch]
+    A -->|Video| C[Facial Expression Analysis Branch]
+
+    subgraph Voice Analysis Branch
+        B --> D[Data Acquisition]
+        D --> E[Preprocessing<br>Noise Removal, Trimming]
+        E --> F[Feature Extraction<br>MFCCs, Pitch, Jitter, Shimmer]
+        F --> G[RNN-LSTM Model]
+        G --> H[Emotion Probabilities Output]
+    end
+
+    subgraph Facial Expression Analysis Branch
+        C --> I[Data Acquisition]
+        I --> J[Preprocessing<br>Face Alignment, Colorization]
+        J --> K[Feature Extraction<br>FaceNet-PyTorch Embeddings]
+        K --> L[EfficientNet-B2 Model]
+        L --> M[Emotion Probabilities Output]
+    end
+
+    H --> N[Fusion Algorithm<br>MADRS-based Mapping]
+    M --> N
+    N --> O[Depression Assessment<br>Severity Score]
