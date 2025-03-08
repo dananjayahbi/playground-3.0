@@ -1,0 +1,12 @@
+flowchart TD
+    Start --> GatherIdeas["Research and gather page ideas"]
+    GatherIdeas --> DecideNiche["Decide on a niche for a page"]
+    DecideNiche --> CreatePage["Create the Facebook page"]
+    CreatePage --> CreateLogo["Create the logo"]
+    CreateLogo --> DecideTitle["Decide the page title"]
+    DecideTitle --> WriteDescription["Write the page description"]
+    WriteDescription --> DecidePostStyle["Decide the posts style"]
+    DecidePostStyle --> PlanContent["Plan content strategy\n(post types, frequency)"]
+    PlanContent --> MoreIdeas{"More page ideas?"}
+    MoreIdeas -- Yes --> GatherIdeas
+    MoreIdeas -- No --> EndSetup["End setup"]
