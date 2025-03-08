@@ -1,5 +1,3 @@
-# preview.py
-
 import tkinter as tk
 from PIL import Image, ImageDraw, ImageFont, ImageTk
 import os
@@ -171,7 +169,7 @@ class PreviewFrame(tk.Frame):
         """Save the full-size post image to the 'posts' folder as a PNG file."""
         image = self.generate_post_image()
         # Make sure we have a 'posts' folder
-        posts_dir = os.path.join(os.getcwd(), "posts")
+        posts_dir = os.path.join(os.getcwd(), "src/posts")
         if not os.path.exists(posts_dir):
             os.makedirs(posts_dir)
 

@@ -1,5 +1,3 @@
-# gui.py
-
 import tkinter as tk
 import sys
 import ttkbootstrap as tkbs

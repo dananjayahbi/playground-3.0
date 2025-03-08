@@ -1,5 +1,3 @@
-# main.py
-
 from gui import App
 
 def main():
